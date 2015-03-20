@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSchema>
+  <ArchaeologicalElement name="entity">
+    <description></description>
+    <property name="prefix" type="measure" isIdentifier="true">
+      <description></description>
+      <formatString><![CDATA[$2]]></formatString>
+    </property>
+    <property name="note" type="measure">
+      <description>This is a note</description>
+      <formatString><![CDATA[$2]]></formatString>
+    </property>
+    <property name="choice" type="vocab">
+      <description></description>
+      <lookup>
+        <term> {Yes}
+          <description></description>
+        </term>
+        <term> {No}
+          <description></description>
+        </term>
+      </lookup>
+    </property>
+  </ArchaeologicalElement>
+</dataSchema>

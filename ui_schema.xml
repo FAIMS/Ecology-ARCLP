@@ -1,0 +1,235 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Ecology ARCLP</h:title>
+    <model>
+      <instance>
+        <faims id="Ecology ARCLP">
+          <style>
+            <orientation>
+              <orientation/>
+            </orientation>
+            <even>
+              <layout_weight/>
+            </even>
+            <large>
+              <layout_weight/>
+            </large>
+          </style>
+          <user>
+            <usertab>
+              <users/>
+            </usertab>
+          </user>
+          <bettong>
+            <!-- Physical Characteristics -->
+            <physicalCharacteristics>
+              <recordId/>
+              <scribe/>
+              <processingPerson/>
+              <totalWeight/>
+              <bagWeight/>
+              <pes/>
+              <tailWidth/>
+              <condition/>
+              <new/>
+              <earTagNum/>
+              <dna/>
+              <collarFrequency/>
+              <sex/>
+              <testes/>
+              <pouch/>
+              <pySize/>
+              <comments/>
+            </physicalCharacteristics>
+            <!-- Approach and Removal -->
+            <approachAndRemoval>
+              <timestamp/>
+              <wNumber/>
+              <bagNumber/>
+              <gpsCoords/>
+              <movedInTrap/>
+              <madeNoise/>
+              <defecatedInTrap/>
+              <hessianRemoved/>
+              <numBlowsToBag/>
+              <bouncedInBags/>
+            </approachAndRemoval>
+            <!-- Processing and Release -->
+            <processingAndRelease>
+              <madeNoiseOnProcessing/>
+              <struggledOnProcessing/>
+              <DefecatedOnProcessing/>
+              <wNumOnRelease/>
+              <timeOnRelease/>
+              <numNudgesToLeave/>
+              <seconds/>
+              <hopRun/>
+              <openWarrenOutSight/>
+              <alarmCall/>
+              <notes/>
+            </processingAndRelease>
+          </bettong>
+        </faims>
+      </instance>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="style">
+      <label/>
+      <group ref="orientation">
+        <label/>
+        <input ref="orientation">
+          <label>horizontal</label>
+        </input>
+      </group>
+      <group ref="even">
+        <label/>
+        <input ref="layout_weight">
+          <label>1</label>
+        </input>
+      </group>
+    </group>
+    <!-- User Tab Group -->
+    <group ref="user">
+      <label>{User_List}</label>
+      <group ref="usertab" faims_scrollable="false">
+        <label>{User_List}</label>
+        <select1 ref="users" appearance="compact" faims_certainty="false" faims_annotation="false">
+          <label>{Users}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+      </group>
+    </group>
+    <!-- Bettong Tab Group -->
+    <group ref="bettong" faims_archent_type="entity">
+      <label>Bettong</label>
+      <!-- Physical Characteristics tab -->
+      <group ref="physicalCharacteristics">
+    		<label>Physical Characteristics</label>
+        <input ref="recordId" faims_annotation="false" faims_read_only="true"><label>{Record_ID}</label></input>
+        <input ref="scribe" faims_annotation="false" faims_read_only="true"><label>{Scribe}</label></input>
+        <input ref="processingPerson"><label>{Processing_Person}</label></input>
+        <input ref="totalWeight"><label>{Total_Weight}</label></input>
+        <input ref="bagWeight"><label>{Bag_Weight}</label></input>
+        <input ref="pes"><label>{Pes}</label></input>
+        <input ref="tailWidth"><label>{Tail_Width}</label></input>
+        <select1 ref="condition" appearance="full">
+          <label>{Condition}</label>
+          <item>
+            <label>G</label>
+            <value>0</value>
+          </item>
+          <item>
+            <label>F</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>N/A</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <select1 ref="new" appearance="full">
+          <label>{New}</label>
+          <item>
+            <label>Y</label>
+            <value>0</value>
+          </item>
+          <item>
+            <label>N</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>N/A</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <input ref="earTagNum"><label>{Ear_Tag_Num}</label></input>
+        <select1 ref="dna" appearance="full">
+          <label>{DNA}</label>
+          <item>
+            <label>Y</label>
+            <value>0</value>
+          </item>
+          <item>
+            <label>N</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>N/A</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <input ref="collarFrequency"><label>{Collar_Frequency}</label></input>
+        <select1 ref="sex" appearance="full">
+          <label>{New}</label>
+          <item>
+            <label>M</label>
+            <value>0</value>
+          </item>
+          <item>
+            <label>F</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>N/A</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <input ref="testes"><label>{Testes}</label></input>
+        <select1 ref="pouch" appearance="full">
+          <label>{Pouch}</label>
+          <item>
+            <label>A</label>
+            <value>0</value>
+          </item>
+          <item>
+            <label>V</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>N/A</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Other</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <input ref="pySize"><label>{PY_Size}</label></input>
+        <input ref="comments"><label>{Comments}</label></input>
+
+<!--     		<input ref="prefixfield" faims_attribute_name="prefix" faims_attribute_type="measure">
+    			<label/>
+    		</input>
+        <trigger ref="save">
+          <label>Save button</label>
+        </trigger> -->
+      </group>
+      <!-- Approach and Removal tab -->
+  	  <group ref="approachAndRemoval">
+  		  <label>Approach and Removal</label>
+<!--         <select1 ref="choicefield" appearance="full" faims_attribute_name="choice" faims_attribute_type="vocab">
+          <label>Choice</label>
+          <item>
+            <label>Yes</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>0</value>
+          </item>
+        </select1>
+        <input ref="notefield" faims_attribute_name="note" faims_attribute_type="measure">
+          <label>Notes</label>
+        </input> -->
+      </group>
+      <!-- Processing and Release tab -->
+      <group ref="processingAndRelease">
+        <label>Processing and Release</label>
+      </group>
+    </group>
+  </h:body>
+</h:html>
