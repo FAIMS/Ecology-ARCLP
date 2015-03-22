@@ -36,7 +36,7 @@
               <tailWidth/>
               <condition/>
               <new/>
-              <earTagNum/>
+              <earTagNumber/>
               <dna/>
               <collarFrequency/>
               <sex/>
@@ -48,22 +48,22 @@
             <!-- Approach and Removal -->
             <approachAndRemoval>
               <timestamp/>
-              <wNumber/>
-              <bagNumber/>
-              <gpsCoords/>
+              <wNumber/>      <bagNumber/>
+              <latitude/>     <longitude/>
+              <takeFromGps/>
               <movedInTrap/>
               <madeNoise/>
               <defecatedInTrap/>
               <hessianRemoved/>
               <numBlowsToBag/>
-              <bouncedInBags/>
+              <bouncedInBag/>
             </approachAndRemoval>
             <!-- Processing and Release -->
             <processingAndRelease>
               <madeNoiseOnProcessing/>
               <struggledOnProcessing/>
-              <DefecatedOnProcessing/>
-              <wNumOnRelease/>
+              <defecatedOnProcessing/>
+              <wNumberOnRelease/>
               <timeOnRelease/>
               <numNudgesToLeave/>
               <seconds/>
@@ -132,7 +132,7 @@
           <item><label>N</label>  <value>1</value></item>
           <item><label>N/A</label><value>2</value></item>
         </select1>
-        <input ref="earTagNum"><label>{Ear_Tag_Num}</label></input>
+        <input ref="earTagNumber"><label>{Ear_Tag_Number}</label></input>
         <select1 ref="dna" appearance="full">
           <label>{DNA}</label>
           <item><label>Y</label>  <value>0</value></item>
@@ -156,32 +156,49 @@
         </select1>
         <input ref="pySize">    <label>{PY_Size}</label></input>
         <input ref="comments">  <label>{Comments}</label></input>
-
-<!--         <input ref="prefixfield" faims_attribute_name="prefix" faims_attribute_type="measure">
-          <label/>
-        </input>
-        <trigger ref="save">
-          <label>Save button</label>
-        </trigger> -->
       </group>
       <!-- Approach and Removal tab -->
       <group ref="approachAndRemoval">
         <label>Approach and Removal</label>
-<!--         <select1 ref="choicefield" appearance="full" faims_attribute_name="choice" faims_attribute_type="vocab">
-          <label>Choice</label>
-          <item>
-            <label>Yes</label>
-            <value>1</value>
-          </item>
-          <item>
-            <label>No</label>
-            <value>0</value>
-          </item>
+        <input ref="timestamp">  <label>{Timestamp}</label></input>
+        <!-- W# and Bag# are to be side-by-side -->
+        <input ref="wNumber">    <label>{W_Number}</label></input>
+        <input ref="bagNumber">  <label>{Bag_Number}</label></input>
+        <!-- Latitude and longitude are to be side-by-side -->
+        <input ref="latitude">   <label>{Latitude}</label></input>
+        <input ref="longitude">  <label>{Longitude}</label></input>
+        <trigger ref="takeFromGps"><label>Take from GPS</label></trigger>
+        <select1 ref="movedInTrap" appearance="full">
+          <label>{Moved_In_Trap}</label>
+          <item><label>Y</label>    <value>0</value></item>
+          <item><label>N</label>    <value>1</value></item>
+          <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <input ref="notefield" faims_attribute_name="note" faims_attribute_type="measure">
-          <label>Notes</label>
-        </input> -->
-      </group>
+        <select1 ref="madeNoise" appearance="full">
+          <label>{Made_Noise}</label>
+          <item><label>Y</label>    <value>0</value></item>
+          <item><label>N</label>    <value>1</value></item>
+          <item><label>N/A</label>  <value>2</value></item>
+        </select1>
+        <select1 ref="defecatedInTrap" appearance="full">
+          <label>{Defecated_In_Trap}</label>
+          <item><label>Y</label>    <value>0</value></item>
+          <item><label>N</label>    <value>1</value></item>
+          <item><label>N/A</label>  <value>2</value></item>
+        </select1>
+        <select1 ref="hessianRemoved" appearance="full">
+          <label>{Hessian_Removed}</label>
+          <item><label>Y</label>    <value>0</value></item>
+          <item><label>N</label>    <value>1</value></item>
+          <item><label>N/A</label>  <value>2</value></item>
+        </select1>
+        <input ref="numberBlowsToBag"><label>{Number_Blows_To_Bag}</label></input>
+        <select1 ref="bouncedInBag" appearance="full">
+          <label>{Bounced_In_Bag}</label>
+          <item><label>Y</label>    <value>0</value></item>
+          <item><label>N</label>    <value>1</value></item>
+          <item><label>N/A</label>  <value>2</value></item>
+        </select1>
       <!-- Processing and Release tab -->
       <group ref="processingAndRelease">
         <label>Processing and Release</label>
