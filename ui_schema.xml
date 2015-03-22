@@ -65,7 +65,7 @@
               <defecatedOnProcessing/>
               <wNumberOnRelease/>
               <timeOnRelease/>
-              <numNudgesToLeave/>
+              <numberNudgesToLeave/>
               <seconds/>
               <hopRun/>
               <openWarrenOutSight/>
@@ -93,7 +93,7 @@
         </input>
       </group>
     </group>
-    <!-- User Tab Group -->
+    <!-- USER TAB GROUP -->
     <group ref="user">
       <label>{User_List}</label>
       <group ref="usertab" faims_scrollable="false">
@@ -107,10 +107,10 @@
         </select1>
       </group>
     </group>
-    <!-- Bettong Tab Group -->
+    <!-- BETTONG TAB GROUP -->
     <group ref="bettong" faims_archent_type="entity">
       <label>Bettong</label>
-      <!-- Physical Characteristics tab -->
+      <!-- PHYSICAL CHARACTERISTICS TAB -->
       <group ref="physicalCharacteristics">
         <label>Physical Characteristics</label>
         <input ref="recordId" faims_annotation="false" faims_read_only="true">  <label>{Record_ID}</label></input>
@@ -157,7 +157,7 @@
         <input ref="pySize">    <label>{PY_Size}</label></input>
         <input ref="comments">  <label>{Comments}</label></input>
       </group>
-      <!-- Approach and Removal tab -->
+      <!-- APPROACH AND REMOVAL TAB -->
       <group ref="approachAndRemoval">
         <label>Approach and Removal</label>
         <input ref="timestamp">  <label>{Timestamp}</label></input>
@@ -199,9 +199,56 @@
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-      <!-- Processing and Release tab -->
+      <!-- PROCESSING AND RELEASE TAB -->
       <group ref="processingAndRelease">
         <label>Processing and Release</label>
+        <select1 ref="madeNoiseOnProcessing" appearance="full">
+          <label>{Made_Noise_On_Processing}</label>
+          <item><label>Y</label>    <value>0</value></item>
+          <item><label>N</label>    <value>1</value></item>
+          <item><label>N/A</label>  <value>2</value></item>
+        </select1>
+        <select1 ref="struggledOnProcessing" appearance="full">
+          <label>{Struggled_On_Processing}</label>
+          <item><label>Y</label>    <value>0</value></item>
+          <item><label>N</label>    <value>1</value></item>
+          <item><label>N/A</label>  <value>2</value></item>
+        </select1>
+        <select1 ref="defecatedOnProcessing" appearance="full">
+          <label>{Defecated_On_Processing}</label>
+          <item><label>Y</label>    <value>0</value></item>
+          <item><label>N</label>    <value>1</value></item>
+          <item><label>N/A</label>  <value>2</value></item>
+        </select1>
+        <!-- TIME ON RELEASE -->
+        <!-- CLOCK SELECTOR  -->
+        <input ref="numberNudgesToLeave"><label>{Number_Nudges_To_Leave}</label></input>
+        <input ref="seconds"><label>{Seconds}</label></input>
+        <select1 ref="hopRun" appearance="full">
+          <label>{Hop_Run}</label>
+          <item><label>H</label>    <value>0</value></item>
+          <item><label>R</label>    <value>1</value></item>
+          <item><label>HR</label>   <value>2</value></item>
+          <item><label>N/A</label>  <value>3</value></item>
+        </select1>
+        <select1 ref="openWarrenOutSight" appearance="full">
+          <label>{Open_Warren_Out_Sight}</label>
+          <item><label>OOS</label>  <value>0</value></item>
+          <item><label>O</label>    <value>1</value></item>
+          <item><label>W</label>    <value>2</value></item>
+          <item><label>N/A</label>  <value>3</value></item>
+        </select1>
+        <select1 ref="alarmCall" appearance="full">
+          <label>{Alarm_Call}</label>
+          <item><label>Y</label>    <value>0</value></item>
+          <item><label>N</label>    <value>1</value></item>
+          <item><label>N/A</label>  <value>2</value></item>
+        </select1>
+        <!--
+             NB: Labelling the field "Notes" as below is inconsistent with the
+             physical characteristics tab, which uses "Comments".
+        -->
+        <input ref="notes"><label>Notes</label></input>
       </group>
     </group>
   </h:body>
