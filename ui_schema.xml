@@ -175,14 +175,14 @@
         <input ref="bagNumber">                                 <label>{Bag_Number}</label></input>
         <group ref="coodinates" faims_style="orientation">
           <label/>
-          <childLeft faims_style="even">
+          <group ref="childLeft" faims_style="even">
             <label/>
             <input ref="latitude"  faims_read_only="true"> <label>{Latitude}</label></input>
-          </childLeft>
-          <childRight faims_style="even">
+          </group>
+          <group ref="childRight" faims_style="even">
             <label/>
             <input ref="longitude" faims_read_only="true"> <label>{Longitude}</label></input>
-          </childRight>
+          </group>
         </group>
         <trigger ref="takeFromGps"><label>Take from GPS</label></trigger>
         <select1 ref="movedInTrap" appearance="full">
