@@ -8,14 +8,14 @@ makeLocalID(){
     fetchOne("CREATE TABLE IF NOT EXISTS localSettings (key text primary key, value text);");
     fetchOne("drop view latestNonDeletedArchEntFormattedIdentifiers;");
     fetchOne("CREATE VIEW latestNonDeletedArchEntFormattedIdentifiers as " +
-              "select uuid, aenttypeid, aenttypename, group_concat(response, '') as response, null as deleted " +
-              "from ( " +
-                "select uuid, aenttypeid, aenttypename, group_concat(format(formatstring, vocabname, measure, freetext, certainty), appendcharacterstring) as response, null as deleted, aentcountorder " +
-                "from ( " +
-                  "select uuid, aenttypeid, aenttypename, formatstring, vocabname, measure, freetext, certainty, appendcharacterstring, null as deleted, aentcountorder, vocabcountorder, attributeid " +
-                  "from latestNonDeletedArchent " +
+              "SELECT uuid, aenttypeid, aenttypename, group_concat(response, '') as response, null as deleted " +
+              "FROM ( " +
+                "SELECT uuid, aenttypeid, aenttypename, group_concat(format(formatstring, vocabname, measure, freetext, certainty), appendcharacterstring) as response, null as deleted, aentcountorder " +
+                "FROM ( " +
+                  "SELECT uuid, aenttypeid, aenttypename, formatstring, vocabname, measure, freetext, certainty, appendcharacterstring, null as deleted, aentcountorder, vocabcountorder, attributeid " +
+                  "FROM latestNonDeletedArchent " +
                     "JOIN aenttype using (aenttypeid) " +
-                    "JOIN (select * from idealaent where isIdentifier='true') using (aenttypeid) " +
+                    "JOIN (SELECT * FROM idealaent where isIdentifier='true') using (aenttypeid) " +
                     "join attributekey  using (attributeid) " +
                     "left outer join latestNonDeletedAentValue using (uuid, attributeid) " +
                     "left outer join vocabulary using (attributeid, vocabid) " +
@@ -40,7 +40,7 @@ makeLocalID();
 /*** USER ***/
 
 loadUsers() {
-    fetchAll("select userid, fname || ' ' || lname from user where userdeleted is null;", new FetchCallback() {
+    fetchAll("SELECT userid, fname || ' ' || lname FROM user WHERE userdeleted IS null;", new FetchCallback() {
         onFetch(result) {
             populateList("user/usertab/users", result);
         }
@@ -51,7 +51,7 @@ String username = "";
 String device = "";
 
 login() {
-    fetchOne("select userid,fname,lname,email from user where userid='" + getListItemValue() + "';", new FetchCallback() {
+    fetchOne("SELECT userid,fname,lname,email FROM user where userid='" + getListItemValue() + "';", new FetchCallback() {
         onFetch(result) {
             user = new User(result.get(0),result.get(1),result.get(2),result.get(3));
             setUser(user);
