@@ -25,7 +25,7 @@
             </usertab>
           </user>
           <bettong>
-            <!-- Physical Characteristics -->
+            <!-- Physical Characteristics Tab Group -->
             <physicalCharacteristics>
               <recordId/>
               <scribe/>
@@ -45,7 +45,7 @@
               <pySize/>
               <comments/>
             </physicalCharacteristics>
-            <!-- Approach and Removal -->
+            <!-- Approach and Removal Tab Group -->
             <approachAndRemoval>
               <timestamp/>
               <wNumber/>
@@ -66,7 +66,7 @@
               <numberBlowsToBag/>
               <bouncedInBag/>
             </approachAndRemoval>
-            <!-- Processing and Release -->
+            <!-- Processing and Release Tab Group -->
             <processingAndRelease>
               <madeNoiseOnProcessing/>
               <struggledOnProcessing/>
@@ -83,7 +83,9 @@
           </bettong>
         </faims>
       </instance>
-      <!-- Bind statements here -->
+      <bind nodeset="/faims/bettong/physicalCharacteristics/totalWeight" type="decimal"/>
+      <!--<bind nodeset="/faims/bettong/approachAndRemoval/" type=""/>-->
+      <!--<bind nodeset="/faims/bettong/processingAndRelease/" type=""/>-->
     </model>
   </h:head>
   <h:body>
