@@ -48,8 +48,16 @@
             <!-- Approach and Removal -->
             <approachAndRemoval>
               <timestamp/>
-              <wNumber/>      <bagNumber/>
-              <latitude/>     <longitude/>
+              <wNumber/>
+              <bagNumber/>
+              <coodinates>
+                <childLeft>
+                  <latitude/>
+                </childLeft>
+                <childRight>
+                  <longitude/>
+                </childRight>
+              </coodinates>
               <takeFromGps/>
               <movedInTrap/>
               <madeNoise/>
@@ -75,6 +83,7 @@
           </bettong>
         </faims>
       </instance>
+      <!-- Bind statements here -->
     </model>
   </h:head>
   <h:body>
@@ -160,13 +169,21 @@
       <!-- APPROACH AND REMOVAL TAB -->
       <group ref="approachAndRemoval">
         <label>Approach and Removal</label>
-        <input ref="timestamp">  <label>{Timestamp}</label></input>
-        <!-- W# and Bag# are to be side-by-side -->
-        <input ref="wNumber">    <label>{W_Number}</label></input>
-        <input ref="bagNumber">  <label>{Bag_Number}</label></input>
-        <!-- Latitude and longitude are to be side-by-side -->
-        <input ref="latitude">   <label>{Latitude}</label></input>
-        <input ref="longitude">  <label>{Longitude}</label></input>
+        <input ref="timestamp" faims_read_only="true">          <label>{Timestamp}</label></input>
+        <!-- W# and Bag# were to be side-by-side -->
+        <input ref="wNumber">                                   <label>{W_Number}</label></input>
+        <input ref="bagNumber">                                 <label>{Bag_Number}</label></input>
+        <group ref="coodinates" faims_style="orientation">
+          <label/>
+          <childLeft faims_style="even">
+            <label/>
+            <input ref="latitude"  faims_read_only="true"> <label>{Latitude}</label></input>
+          </childLeft>
+          <childRight faims_style="even">
+            <label/>
+            <input ref="longitude" faims_read_only="true"> <label>{Longitude}</label></input>
+          </childRight>
+        </group>
         <trigger ref="takeFromGps"><label>Take from GPS</label></trigger>
         <select1 ref="movedInTrap" appearance="full">
           <label>{Moved_In_Trap}</label>
@@ -246,7 +263,7 @@
         </select1>
         <!--
              NB: Labelling the field "Notes" as below is inconsistent with the
-             physical characteristics tab, which uses "Comments".
+             Physical Characteristics tab, which uses "Comments".
         -->
         <input ref="notes"><label>Notes</label></input>
       </group>
