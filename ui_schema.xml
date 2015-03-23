@@ -216,6 +216,7 @@
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
+      </group>
       <!-- PROCESSING AND RELEASE TAB -->
       <group ref="processingAndRelease">
         <label>Processing and Release</label>
