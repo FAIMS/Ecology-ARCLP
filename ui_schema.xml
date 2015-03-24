@@ -83,9 +83,25 @@
           </bettong>
         </faims>
       </instance>
-      <bind nodeset="/faims/bettong/physicalCharacteristics/totalWeight" type="decimal"/>
-      <!--<bind nodeset="/faims/bettong/approachAndRemoval/" type=""/>-->
-      <!--<bind nodeset="/faims/bettong/processingAndRelease/" type=""/>-->
+      <!--Physical Characteristics Tab group-->
+      <bind type="decimal" nodeset="/faims/bettong/physicalCharacteristics/recordId"/>
+      <bind type="decimal" nodeset="/faims/bettong/physicalCharacteristics/totalWeight"/>
+      <bind type="decimal" nodeset="/faims/bettong/physicalCharacteristics/bagWeight"/>
+      <bind type="decimal" nodeset="/faims/bettong/physicalCharacteristics/pes"/>
+      <bind type="decimal" nodeset="/faims/bettong/physicalCharacteristics/tailWidth"/>
+      <bind type="decimal" nodeset="/faims/bettong/physicalCharacteristics/earTagNumber"/>
+      <bind type="decimal" nodeset="/faims/bettong/physicalCharacteristics/collarFrequency"/>
+      <bind type="decimal" nodeset="/faims/bettong/physicalCharacteristics/testes"/>
+      <bind type="decimal" nodeset="/faims/bettong/physicalCharacteristics/pySize"/>
+      <!--Approach and Removal Tab group-->
+      <bind type="decimal" nodeset="/faims/bettong/approachAndRemoval/timestamp"/>
+      <bind type="decimal" nodeset="/faims/bettong/approachAndRemoval/wNumber"/>
+      <bind type="decimal" nodeset="/faims/bettong/approachAndRemoval/bagNumber"/>
+      <bind type="decimal" nodeset="/faims/bettong/approachAndRemoval/numberBlowsToBag"/>
+      <!--Processing and Release Tab Group-->
+      <bind type="decimal" nodeset="/faims/bettong/processingAndRelease/wNumberOnRelease"/>
+      <bind type="decimal" nodeset="/faims/bettong/processingAndRelease/numberNudgesToLeave"/>
+      <bind type="decimal" nodeset="/faims/bettong/processingAndRelease/seconds"/>
     </model>
   </h:head>
   <h:body>
@@ -240,10 +256,9 @@
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <!-- TIME ON RELEASE -->
-        <!-- CLOCK SELECTOR  -->
+        <input ref="timeOnRelease">      <label>{Time_On_Release}</label></input>       <!-- Should this be a clock selector? -->
         <input ref="numberNudgesToLeave"><label>{Number_Nudges_To_Leave}</label></input>
-        <input ref="seconds"><label>{Seconds}</label></input>
+        <input ref="seconds">            <label>{Seconds}</label></input>
         <select1 ref="hopRun" appearance="full">
           <label>{Hop_Run}</label>
           <item><label>H</label>    <value>0</value></item>
