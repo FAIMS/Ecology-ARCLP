@@ -64,7 +64,7 @@ login() {
 
 entity_id = null;
 saveEntity() {
-  saveTabGroup("control", entity_id, null, null, new SaveCallback() {
+  saveTabGroup("bettong", entity_id, null, null, new SaveCallback() {
     onSave(uuid, newRecord) {
       entity_id = uuid;
       showToast("saved entity " + entity_id);
