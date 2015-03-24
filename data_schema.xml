@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSchema>
-  <ArchaeologicalElement name="entity">
+  <ArchaeologicalElement name="bettongRecord">
     <description></description>
 
     <!--
@@ -20,26 +20,27 @@
     </property>
     <property name="processingPerson" type="freetext">
       <description/>
-      <formatString><![CDATA[$3]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
     <property name="totalWeight" type="measure">
       <description/>
-      <formatString><![CDATA[$2]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
     <property name="bagWeight" type="measure">
       <description/>
-      <formatString><![CDATA[$2]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
     <property name="pes" type="measure">
       <description/>
-      <formatString><![CDATA[$2]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
-    <property name="tailWidth" type="freetext">
+    <property name="tailWidth" type="measure">
       <description/>
-      <formatString><![CDATA[$3]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
     <property name="condition" type="vocab">
       <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
       <lookup>
         <term> {G}
           <description></description>
@@ -54,6 +55,7 @@
     </property>
     <property name="new" type="vocab">
       <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
       <lookup>
         <term> {Y}
           <description></description>
@@ -68,9 +70,9 @@
     </property>
     <property name="earTagNumber" type="measure">
       <description/>
-      <formatString><![CDATA[$2]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
-    <property name="dna" type="measure">
+    <property name="dna" type="vocab">
       <description/>
       <lookup>
         <term> {Y}
@@ -86,27 +88,52 @@
     </property>
     <property name="collarFrequency" type="measure">
       <description/>
-      <formatString><![CDATA[$2]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
-    <property name="sex" type="freetext">
+    <property name="sex" type="vocab">
       <description/>
-      <formatString><![CDATA[$3]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {M}
+          <description></description>
+        </term>
+        <term> {F}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+      </lookup>
     </property>
-    <property name="testes" type="freetext">
+    <property name="testes" type="measure">
       <description/>
-      <formatString><![CDATA[$3]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
-    <property name="pouch" type="measure">
+    <property name="pouch" type="vocab">
       <description/>
-      <formatString><![CDATA[$2]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {A}
+          <description></description>
+        </term>
+        <term> {V}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+        <term> {Other}
+          <description></description>
+        </term>
+      </lookup>
     </property>
     <property name="pySize" type="measure">
       <description/>
-      <formatString><![CDATA[$2]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
-    <property name="notes" type="measure">
+    <property name="notes" type="freetext">
       <description/>
-      <formatString><![CDATA[$2]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
 
 
@@ -115,16 +142,17 @@
 
     <property name="prefix" type="measure" isIdentifier="true">
       <description></description>
-      <formatString><![CDATA[$2]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
 
     <property name="note" type="measure">
       <description>This is a note</description>
-      <formatString><![CDATA[$2]]></formatString>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
 
     <property name="choice" type="vocab">
       <description></description>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
       <lookup>
         <term> {Yes}
           <description></description>
