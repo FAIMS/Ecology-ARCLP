@@ -43,7 +43,7 @@
               <testes/>
               <pouch/>
               <pySize/>
-              <comments/>
+              <notes/>
             </physicalCharacteristics>
             <!-- Approach and Removal Tab Group -->
             <approachAndRemoval>
@@ -128,8 +128,8 @@
         <select1 ref="users" appearance="compact" faims_certainty="false" faims_annotation="false">
           <label>{Users}</label>
           <item>
-            <label>Dummy</label>
-            <value>Dummy</value>
+            <label><!-- Populated by ui_logic.bsh --></label>
+            <value><!-- Populated by ui_logic.bsh --></value>
           </item>
         </select1>
       </group>
@@ -168,7 +168,7 @@
         </select1>
         <input ref="collarFrequency" faims_certainty="false"><label>{Collar_Frequency}</label></input>
         <select1 ref="sex" appearance="full">
-          <label>{New}</label>
+          <label>{Sex}</label>
           <item><label>M</label>  <value>0</value></item>
           <item><label>F</label>  <value>1</value></item>
           <item><label>N/A</label><value>2</value></item>
@@ -182,7 +182,7 @@
           <item><label>Other</label><value>3</value></item>
         </select1>
         <input ref="pySize">                            <label>{PY_Size}</label></input>
-        <input ref="comments" faims_certainty="false">  <label>{Comments}</label></input>
+        <input ref="notes" faims_certainty="false">     <label>{Notes}</label></input>
       </group>
       <!-- APPROACH AND REMOVAL TAB -->
       <group ref="approachAndRemoval">
@@ -279,10 +279,6 @@
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <!--
-             NB: Labelling the field "Notes" as below is inconsistent with the
-             Physical Characteristics tab, which uses "Comments".
-        -->
         <input ref="notes"><label>Notes</label></input>
       </group>
     </group>
