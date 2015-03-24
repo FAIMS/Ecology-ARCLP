@@ -142,7 +142,7 @@
         <label>Physical Characteristics</label>
         <input ref="recordId" faims_annotation="false" faims_read_only="true">  <label>{Record_ID}</label></input>
         <input ref="scribe" faims_annotation="false" faims_read_only="true">    <label>{Scribe}</label></input>
-        <input ref="processingPerson">                                          <label>{Processing_Person}</label></input>
+        <input ref="processingPerson" faims_certainty="false">                  <label>{Processing_Person}</label></input>
         <input ref="totalWeight">                                               <label>{Total_Weight}</label></input>
         <input ref="bagWeight">                                                 <label>{Bag_Weight}</label></input>
         <input ref="pes">                                                       <label>{Pes}</label></input>
@@ -159,14 +159,14 @@
           <item><label>N</label>  <value>1</value></item>
           <item><label>N/A</label><value>2</value></item>
         </select1>
-        <input ref="earTagNumber"><label>{Ear_Tag_Number}</label></input>
+        <input ref="earTagNumber" faims_certainty="false"><label>{Ear_Tag_Number}</label></input>
         <select1 ref="dna" appearance="full">
           <label>{DNA}</label>
           <item><label>Y</label>  <value>0</value></item>
           <item><label>N</label>  <value>1</value></item>
           <item><label>N/A</label><value>2</value></item>
         </select1>
-        <input ref="collarFrequency"><label>{Collar_Frequency}</label></input>
+        <input ref="collarFrequency" faims_certainty="false"><label>{Collar_Frequency}</label></input>
         <select1 ref="sex" appearance="full">
           <label>{New}</label>
           <item><label>M</label>  <value>0</value></item>
@@ -174,32 +174,32 @@
           <item><label>N/A</label><value>2</value></item>
         </select1>
         <input ref="testes"><label>{Testes}</label></input>
-        <select1 ref="pouch" appearance="full">
+        <select1 ref="pouch" appearance="full" faims_certainty="false">
           <label>{Pouch}</label>
           <item><label>A</label>    <value>0</value></item>
           <item><label>V</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
           <item><label>Other</label><value>3</value></item>
         </select1>
-        <input ref="pySize">    <label>{PY_Size}</label></input>
-        <input ref="comments">  <label>{Comments}</label></input>
+        <input ref="pySize">                            <label>{PY_Size}</label></input>
+        <input ref="comments" faims_certainty="false">  <label>{Comments}</label></input>
       </group>
       <!-- APPROACH AND REMOVAL TAB -->
       <group ref="approachAndRemoval">
         <label>Approach and Removal</label>
-        <input ref="timestamp" faims_read_only="true">          <label>{Timestamp}</label></input>
+        <input ref="timestamp" faims_read_only="true" faims_certainty="false">          <label>{Timestamp}</label></input>
         <!-- W# and Bag# were to be side-by-side -->
-        <input ref="wNumber">                                   <label>{W_Number}</label></input>
-        <input ref="bagNumber">                                 <label>{Bag_Number}</label></input>
+        <input ref="wNumber" faims_certainty="false">                                   <label>{W_Number}</label></input>
+        <input ref="bagNumber" faims_certainty="false">                                 <label>{Bag_Number}</label></input>
         <group ref="coodinates" faims_style="orientation">
           <label/>
           <group ref="childLeft" faims_style="even">
             <label/>
-            <input ref="latitude"  faims_read_only="true"> <label>{Latitude}</label></input>
+            <input ref="latitude"  faims_read_only="true" faims_certainty="false"> <label>{Latitude}</label></input>
           </group>
           <group ref="childRight" faims_style="even">
             <label/>
-            <input ref="longitude" faims_read_only="true"> <label>{Longitude}</label></input>
+            <input ref="longitude" faims_read_only="true" faims_certainty="false"> <label>{Longitude}</label></input>
           </group>
         </group>
         <trigger ref="takeFromGps"><label>Take from GPS</label></trigger>
@@ -256,7 +256,7 @@
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <input ref="timeOnRelease">      <label>{Time_On_Release}</label></input>       <!-- Should this be a clock selector? -->
+        <input ref="timeOnRelease" faims_certainty="false">      <label>{Time_On_Release}</label></input>       <!-- Should this be a clock selector? -->
         <input ref="numberNudgesToLeave"><label>{Number_Nudges_To_Leave}</label></input>
         <input ref="seconds">            <label>{Seconds}</label></input>
         <select1 ref="hopRun" appearance="full">
