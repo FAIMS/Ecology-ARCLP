@@ -135,100 +135,100 @@
       </group>
     </group>
     <!-- BETTONG TAB GROUP -->
-    <group ref="bettong" faims_archent_type="entity">
+    <group ref="bettong" faims_archent_type="bettongRecord">
       <label>Bettong</label>
       <!-- PHYSICAL CHARACTERISTICS TAB -->
       <group ref="physicalCharacteristics">
         <label>Physical Characteristics</label>
-        <input ref="recordId" faims_annotation="false" faims_certainty="false" faims_read_only="true"><label>{Record_ID}</label></input>
-        <input ref="scribe" faims_annotation="false" faims_certainty="false" faims_read_only="true">  <label>{Scribe}</label></input>
-        <input ref="processingPerson" faims_certainty="false">                                        <label>{Processing_Person}</label></input>
-        <input ref="totalWeight">                                                                     <label>{Total_Weight}</label></input>
-        <input ref="bagWeight">                                                                       <label>{Bag_Weight}</label></input>
-        <input ref="pes">                                                                             <label>{Pes}</label></input>
-        <input ref="tailWidth">                                                                       <label>{Tail_Width}</label></input>
-        <select1 ref="condition" appearance="full">
+        <input ref="recordId" faims_attribute_name="recordId" faims_attribute_type="measure" faims_annotation="false" faims_certainty="false" faims_read_only="true"><label>{Record_ID}</label></input>
+        <input ref="scribe" faims_attribute_name="scribe" faims_attribute_type="freetext" faims_annotation="false" faims_certainty="false" faims_read_only="true">  <label>{Scribe}</label></input>
+        <input ref="processingPerson" faims_attribute_name="processingPerson" faims_attribute_type="freetext" faims_certainty="false">                                        <label>{Processing_Person}</label></input>
+        <input ref="totalWeight" faims_attribute_name="totalWeight" faims_attribute_type="measure">                                                                     <label>{Total_Weight}</label></input>
+        <input ref="bagWeight" faims_attribute_name="bagWeight" faims_attribute_type="measure">                                                                       <label>{Bag_Weight}</label></input>
+        <input ref="pes" faims_attribute_name="pes" faims_attribute_type="measure">                                                                             <label>{Pes}</label></input>
+        <input ref="tailWidth" faims_attribute_name="tailWidth" faims_attribute_type="measure">                                                                       <label>{Tail_Width}</label></input>
+        <select1 ref="condition" faims_attribute_name="condition" faims_attribute_type="vocab" appearance="full">
           <label>{Condition}</label>
           <item><label>G</label>  <value>0</value></item>
           <item><label>F</label>  <value>1</value></item>
           <item><label>N/A</label><value>2</value></item>
         </select1>
-        <select1 ref="new" appearance="full">
+        <select1 ref="new" faims_attribute_name="new" faims_attribute_type="vocab" appearance="full">
           <label>{New}</label>
           <item><label>Y</label>  <value>0</value></item>
           <item><label>N</label>  <value>1</value></item>
           <item><label>N/A</label><value>2</value></item>
         </select1>
-        <input ref="earTagNumber" faims_certainty="false"><label>{Ear_Tag_Number}</label></input>
-        <select1 ref="dna" appearance="full">
+        <input ref="earTagNumber" faims_attribute_name="earTagNumber" faims_attribute_type="vocab" faims_certainty="false"><label>{Ear_Tag_Number}</label></input>
+        <select1 ref="dna" faims_attribute_name="dna" faims_attribute_type="vocab"  appearance="full">
           <label>{DNA}</label>
           <item><label>Y</label>  <value>0</value></item>
           <item><label>N</label>  <value>1</value></item>
           <item><label>N/A</label><value>2</value></item>
         </select1>
-        <input ref="collarFrequency" faims_certainty="false"><label>{Collar_Frequency}</label></input>
-        <select1 ref="sex" appearance="full">
+        <input ref="collarFrequency" faims_attribute_name="collarFrequency" faims_attribute_type="measure" faims_certainty="false"><label>{Collar_Frequency}</label></input>
+        <select1 ref="sex" faims_attribute_name="sex" faims_attribute_type="vocab" appearance="full">
           <label>{Sex}</label>
           <item><label>M</label>  <value>0</value></item>
           <item><label>F</label>  <value>1</value></item>
           <item><label>N/A</label><value>2</value></item>
         </select1>
-        <input ref="testes"><label>{Testes}</label></input>
-        <select1 ref="pouch" appearance="full" faims_certainty="false">
+        <input ref="testes" faims_attribute_name="testes" faims_attribute_type="measure"><label>{Testes}</label></input>
+        <select1 ref="pouch" faims_attribute_name="pouch" faims_attribute_type="vocab" appearance="full" faims_certainty="false">
           <label>{Pouch}</label>
           <item><label>A</label>    <value>0</value></item>
           <item><label>V</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
           <item><label>Other</label><value>3</value></item>
         </select1>
-        <input ref="pySize">                            <label>{PY_Size}</label></input>
-        <input ref="notes" faims_certainty="false">     <label>{Notes}</label></input>
+        <input ref="pySize" faims_attribute_name="pySize" faims_attribute_type="measure">                            <label>{PY_Size}</label></input>
+        <input ref="notes" faims_attribute_name="notes" faims_attribute_type="freetext" faims_certainty="false">     <label>{Notes}</label></input>
       </group>
       <!-- APPROACH AND REMOVAL TAB -->
       <group ref="approachAndRemoval">
         <label>Approach and Removal</label>
-        <input ref="timestamp" faims_read_only="true" faims_certainty="false">          <label>{Timestamp}</label></input>
+        <input ref="timestamp" faims_attribute_name="timestamp" faims_attribute_type="" faims_read_only="true" faims_certainty="false">          <label>{Timestamp}</label></input>
         <!-- W# and Bag# were to be side-by-side -->
-        <input ref="wNumber" faims_certainty="false">                                   <label>{W_Number}</label></input>
-        <input ref="bagNumber" faims_certainty="false">                                 <label>{Bag_Number}</label></input>
+        <input ref="wNumber" faims_attribute_name="wNumber" faims_attribute_type="" faims_certainty="false">                                   <label>{W_Number}</label></input>
+        <input ref="bagNumber" faims_attribute_name="bagNumber" faims_attribute_type="" faims_certainty="false">                                 <label>{Bag_Number}</label></input>
         <group ref="coodinates" faims_style="orientation">
           <label/>
           <group ref="childLeft" faims_style="even">
             <label/>
-            <input ref="latitude"  faims_read_only="true" faims_certainty="false"> <label>{Latitude}</label></input>
+            <input ref="latitude" faims_attribute_name="latitude" faims_attribute_type=""  faims_read_only="true" faims_certainty="false"> <label>{Latitude}</label></input>
           </group>
           <group ref="childRight" faims_style="even">
             <label/>
-            <input ref="longitude" faims_read_only="true" faims_certainty="false"> <label>{Longitude}</label></input>
+            <input ref="longitude" faims_attribute_name="longitude" faims_attribute_type="" faims_read_only="true" faims_certainty="false"> <label>{Longitude}</label></input>
           </group>
         </group>
         <trigger ref="takeFromGps"><label>Take from GPS</label></trigger>
-        <select1 ref="movedInTrap" appearance="full">
+        <select1 ref="movedInTrap" faims_attribute_name="movedInTrap" faims_attribute_type="" appearance="full">
           <label>{Moved_In_Trap}</label>
           <item><label>Y</label>    <value>0</value></item>
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <select1 ref="madeNoise" appearance="full">
+        <select1 ref="madeNoise" faims_attribute_name="madeNoise" faims_attribute_type="" appearance="full">
           <label>{Made_Noise}</label>
           <item><label>Y</label>    <value>0</value></item>
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <select1 ref="defecatedInTrap" appearance="full">
+        <select1 ref="defecatedInTrap" faims_attribute_name="defecatedInTrap" faims_attribute_type="" appearance="full">
           <label>{Defecated_In_Trap}</label>
           <item><label>Y</label>    <value>0</value></item>
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <select1 ref="hessianRemoved" appearance="full">
+        <select1 ref="hessianRemoved" faims_attribute_name="hessianRemoved" faims_attribute_type="" appearance="full">
           <label>{Hessian_Removed}</label>
           <item><label>Y</label>    <value>0</value></item>
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <input ref="numberBlowsToBag"><label>{Number_Blows_To_Bag}</label></input>
-        <select1 ref="bouncedInBag" appearance="full">
+        <input ref="numberBlowsToBag" faims_attribute_name="numberBlowsToBag" faims_attribute_type=""><label>{Number_Blows_To_Bag}</label></input>
+        <select1 ref="bouncedInBag" faims_attribute_name="bouncedInBag" faims_attribute_type="" appearance="full">
           <label>{Bounced_In_Bag}</label>
           <item><label>Y</label>    <value>0</value></item>
           <item><label>N</label>    <value>1</value></item>
@@ -238,48 +238,48 @@
       <!-- PROCESSING AND RELEASE TAB -->
       <group ref="processingAndRelease">
         <label>Processing and Release</label>
-        <select1 ref="madeNoiseOnProcessing" appearance="full">
+        <select1 ref="madeNoiseOnProcessing" faims_attribute_name="madeNoiseOnProcessing" faims_attribute_type="" appearance="full">
           <label>{Made_Noise_On_Processing}</label>
           <item><label>Y</label>    <value>0</value></item>
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <select1 ref="struggledOnProcessing" appearance="full">
+        <select1 ref="struggledOnProcessing" faims_attribute_name="struggledOnProcessing" faims_attribute_type="" appearance="full">
           <label>{Struggled_On_Processing}</label>
           <item><label>Y</label>    <value>0</value></item>
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <select1 ref="defecatedOnProcessing" appearance="full">
+        <select1 ref="defecatedOnProcessing" faims_attribute_name="defecatedOnProcessing" faims_attribute_type="" appearance="full">
           <label>{Defecated_On_Processing}</label>
           <item><label>Y</label>    <value>0</value></item>
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <input ref="timeOnRelease" faims_certainty="false">      <label>{Time_On_Release}</label></input>       <!-- Should this be a clock selector? -->
-        <input ref="numberNudgesToLeave"><label>{Number_Nudges_To_Leave}</label></input>
-        <input ref="seconds">            <label>{Seconds}</label></input>
-        <select1 ref="hopRun" appearance="full">
+        <input ref="timeOnRelease" faims_attribute_name="timeOnRelease" faims_attribute_type="" faims_certainty="false">      <label>{Time_On_Release}</label></input>       <!-- Should this be a clock selector? -->
+        <input ref="numberNudgesToLeave" faims_attribute_name="numberNudgesToLeave" faims_attribute_type=""><label>{Number_Nudges_To_Leave}</label></input>
+        <input ref="seconds" faims_attribute_name="seconds" faims_attribute_type="">            <label>{Seconds}</label></input>
+        <select1 ref="hopRun" faims_attribute_name="hopRun" faims_attribute_type="" appearance="full">
           <label>{Hop_Run}</label>
           <item><label>H</label>    <value>0</value></item>
           <item><label>R</label>    <value>1</value></item>
           <item><label>HR</label>   <value>2</value></item>
           <item><label>N/A</label>  <value>3</value></item>
         </select1>
-        <select1 ref="openWarrenOutSight" appearance="full">
+        <select1 ref="openWarrenOutSight" faims_attribute_name="openWarrenOutSight" faims_attribute_type="" appearance="full">
           <label>{Open_Warren_Out_Sight}</label>
           <item><label>OOS</label>  <value>0</value></item>
           <item><label>O</label>    <value>1</value></item>
           <item><label>W</label>    <value>2</value></item>
           <item><label>N/A</label>  <value>3</value></item>
         </select1>
-        <select1 ref="alarmCall" appearance="full">
+        <select1 ref="alarmCall" faims_attribute_name="alarmCall" faims_attribute_type="" appearance="full">
           <label>{Alarm_Call}</label>
           <item><label>Y</label>    <value>0</value></item>
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <input ref="notes"><label>Notes</label></input>
+        <input ref="notes" faims_attribute_name="notes" faims_attribute_type=""><label>Notes</label></input>
       </group>
     </group>
   </h:body>

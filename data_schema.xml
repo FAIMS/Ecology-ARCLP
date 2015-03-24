@@ -9,6 +9,7 @@
                 $3 => Freetext and
                 $4 => Certainty
     -->
+
     <!--Physical Characteristics Tab Group-->
     <property name="recordId" type="measure" isIdentifier="true">
       <description/>
