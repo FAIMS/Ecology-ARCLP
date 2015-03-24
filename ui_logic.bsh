@@ -75,6 +75,28 @@ saveEntity() {
   });
 }
 
+addActionBarItem("sync", new ToggleActionButtonCallback() {
+    actionOnLabel() {
+        "{Sync_Enabled}";
+    }
+    actionOn() {
+        setSyncEnabled(false);
+        setFileSyncEnabled(false);
+        showToast("{Sync_Disabled}");
+    }
+    isActionOff() {
+        isSyncEnabled();
+    }
+    actionOffLabel() {
+        "{Sync_Disabled}";
+    }
+    actionOff() {
+        setSyncEnabled(true);
+        setFileSyncEnabled(true);
+        showToast("{Sync_Enabled}");
+    }
+});
+
 loadUsers();
 
 onEvent("user/usertab/users", "click", "login()");
