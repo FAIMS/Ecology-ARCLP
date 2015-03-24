@@ -128,8 +128,8 @@
         <select1 ref="users" appearance="compact" faims_certainty="false" faims_annotation="false">
           <label>{Users}</label>
           <item>
-            <label><!-- Populated by ui_logic.bsh --></label>
-            <value><!-- Populated by ui_logic.bsh --></value>
+            <label>...<!-- Populated by ui_logic.bsh --></label>
+            <value>...<!-- Populated by ui_logic.bsh --></value>
           </item>
         </select1>
       </group>
