@@ -182,7 +182,7 @@
           <item><label>Other</label><value>3</value></item>
         </select1>
         <input ref="pySize" faims_attribute_name="pySize" faims_attribute_type="measure">                            <label>{PY_Size}</label></input>
-        <input ref="notes" faims_attribute_name="notes" faims_attribute_type="freetext" faims_certainty="false">     <label>{Notes}</label></input>
+        <input ref="notes" faims_attribute_name="notesPhysicalCharacteristics" faims_attribute_type="freetext" faims_certainty="false">     <label>{Notes}</label></input>
       </group>
       <!-- APPROACH AND REMOVAL TAB -->
       <group ref="approachAndRemoval">
@@ -279,7 +279,7 @@
           <item><label>N</label>    <value>1</value></item>
           <item><label>N/A</label>  <value>2</value></item>
         </select1>
-        <input ref="notes" faims_attribute_name="notes" faims_attribute_type=""><label>Notes</label></input>
+        <input ref="notes" faims_attribute_name="notesProcessingAndRelease" faims_attribute_type=""><label>Notes</label></input>
       </group>
     </group>
   </h:body>

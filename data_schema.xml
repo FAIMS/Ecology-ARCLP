@@ -132,36 +132,225 @@
       <description/>
       <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
-    <property name="notes" type="freetext">
+    <property name="notesPhysicalCharacteristics" type="freetext">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+    </property>
+    <!--Approach and Removal Tab Group-->
+    <property name="timestamp" type="freetext">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+    </property>
+    <property name="wNumber" type="decimal">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+    </property>
+    <property name="bagNumber" type="decimal">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+    </property>
+    <property name="latitude" type="freetext">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+    </property>
+    <property name="longitude" type="freetext">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+    </property>
+    <property name="movedInTrap" type="vocab">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {Y}
+          <description></description>
+        </term>
+        <term> {N}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+      </lookup>
+    </property>
+    <property name="madeNoise" type="vocab">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {Y}
+          <description></description>
+        </term>
+        <term> {N}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+      </lookup>
+    </property>
+    <property name="defecatedInTrap" type="vocab">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {Y}
+          <description></description>
+        </term>
+        <term> {N}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+      </lookup>
+    </property>
+    <property name="hessianRemoved" type="vocab">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {Y}
+          <description></description>
+        </term>
+        <term> {N}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+      </lookup>
+    </property>
+    <property name="numberBlowsToBag" type="measure">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+    </property>
+    <property name="bouncedInBag" type="vocab">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {Y}
+          <description></description>
+        </term>
+        <term> {N}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+      </lookup>
+    </property>
+    <!--Processing and Release Tab Group-->
+    <property name="madeNoiseOnProcessing" type="vocab">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {Y}
+          <description></description>
+        </term>
+        <term> {N}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+      </lookup>
+    </property>
+    <property name="struggledOnProcessing" type="vocab">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {Y}
+          <description></description>
+        </term>
+        <term> {N}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+      </lookup>
+    </property>
+    <property name="defecatedOnProcessing" type="vocab">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {Y}
+          <description></description>
+        </term>
+        <term> {N}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+      </lookup>
+    </property>
+    <property name="timeOnRelease" type="freetext">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+    </property>
+    <property name="numberNudgesToLeave" type="freetext">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+    </property>
+    <property name="seconds" type="freetext">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+    </property>
+    <property name="hopRun" type="vocab">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {H}
+          <description></description>
+        </term>
+        <term> {R}
+          <description></description>
+        </term>
+        <term> {HR}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+      </lookup>
+    </property>
+    <property name="openWarrenOutSight" type="vocab">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {OOS}
+          <description></description>
+        </term>
+        <term> {O}
+          <description></description>
+        </term>
+        <term> {W}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+      </lookup>
+    </property>
+    <property name="alarmCall" type="vocab">
+      <description/>
+      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
+      <lookup>
+        <term> {Y}
+          <description></description>
+        </term>
+        <term> {N}
+          <description></description>
+        </term>
+        <term> {N_A}
+          <description></description>
+        </term>
+      </lookup>
+    </property>
+    <property name="notesProcessingAndRelease" type="freetext">
       <description/>
       <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
     </property>
 
 
 
-
-
-    <property name="prefix" type="measure" isIdentifier="true">
-      <description></description>
-      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
-    </property>
-
-    <property name="note" type="measure">
-      <description>This is a note</description>
-      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
-    </property>
-
-    <property name="choice" type="vocab">
-      <description></description>
-      <formatString><![CDATA[{{if $1 then "$1 "}}{{if $2 then "$2 "}}{{if $3 then "{$3} "}}{{if lessThan($4, 1.0) then "[$4] "}}]]></formatString>
-      <lookup>
-        <term> {Yes}
-          <description></description>
-        </term>
-        <term> {No}
-          <description></description>
-        </term>
-      </lookup>
-    </property>
   </ArchaeologicalElement>
 </dataSchema>
