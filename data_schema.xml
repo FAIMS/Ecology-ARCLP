@@ -2,14 +2,24 @@
 <dataSchema>
   <ArchaeologicalElement name="entity">
     <description></description>
+
+    <!--Protip: $1 => Vocabname, $2 => Measure, $3 => Freetext and $4 => Certainty-->
+
+    <property name="recordId" type="measure" isIdentifier="true">
+      <description/>
+      <formatString><![CDATA[$2]]></formatString>
+    </property>
+
     <property name="prefix" type="measure" isIdentifier="true">
       <description></description>
       <formatString><![CDATA[$2]]></formatString>
     </property>
+
     <property name="note" type="measure">
       <description>This is a note</description>
       <formatString><![CDATA[$2]]></formatString>
     </property>
+
     <property name="choice" type="vocab">
       <description></description>
       <lookup>
