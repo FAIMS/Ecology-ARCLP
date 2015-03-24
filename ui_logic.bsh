@@ -97,6 +97,27 @@ addActionBarItem("sync", new ToggleActionButtonCallback() {
     }
 });
 
+pullDatabaseFromServer("onComplete1()");
+onComplete1() {
+    showToast("finished pulling database");
+}
+
+pushDatabaseToServer("onComplete2()");
+onComplete2() {
+    showToast("finished pushing database");
+}
+
+onSyncEvent("onSyncStart()", "onSyncSuccess()", "onSyncFailure()");
+onSyncStart() {
+    showToast("sync started");
+}
+onSyncSuccess() {
+    showToast("sync success");
+}
+onSyncFailure() {
+    showToast("sync failed");
+}
+
 loadUsers();
 
 onEvent("user/usertab/users", "click", "login()");
