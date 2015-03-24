@@ -3,12 +3,33 @@
   <ArchaeologicalElement name="entity">
     <description></description>
 
-    <!--Protip: $1 => Vocabname, $2 => Measure, $3 => Freetext and $4 => Certainty-->
+    <!--
+        Protip: $1 => Vocabname,
+                $2 => Measure,
+                $3 => Freetext and
+                $4 => Certainty
+    -->
 
     <property name="recordId" type="measure" isIdentifier="true">
       <description/>
       <formatString><![CDATA[$2]]></formatString>
     </property>
+
+    <property name="scribe" type="freetext">
+      <description/>
+      <formatString><![CDATA[$3]]></formatString>
+    </property>
+
+    <property name="processingPerson" type="freetext">
+      <description/>
+      <formatString><![CDATA[$3]]></formatString>
+    </property>
+
+    <property name="totalWeight" type="measure">
+      <description/>
+      <formatString><![CDATA[$2]]></formatString>
+    </property>
+
 
     <property name="prefix" type="measure" isIdentifier="true">
       <description></description>

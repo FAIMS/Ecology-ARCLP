@@ -140,13 +140,13 @@
       <!-- PHYSICAL CHARACTERISTICS TAB -->
       <group ref="physicalCharacteristics">
         <label>Physical Characteristics</label>
-        <input ref="recordId" faims_annotation="false" faims_read_only="true">  <label>{Record_ID}</label></input>
-        <input ref="scribe" faims_annotation="false" faims_read_only="true">    <label>{Scribe}</label></input>
-        <input ref="processingPerson" faims_certainty="false">                  <label>{Processing_Person}</label></input>
-        <input ref="totalWeight">                                               <label>{Total_Weight}</label></input>
-        <input ref="bagWeight">                                                 <label>{Bag_Weight}</label></input>
-        <input ref="pes">                                                       <label>{Pes}</label></input>
-        <input ref="tailWidth">                                                 <label>{Tail_Width}</label></input>
+        <input ref="recordId" faims_annotation="false" faims_certainty="false" faims_read_only="true"><label>{Record_ID}</label></input>
+        <input ref="scribe" faims_annotation="false" faims_certainty="false" faims_read_only="true">  <label>{Scribe}</label></input>
+        <input ref="processingPerson" faims_certainty="false">                                        <label>{Processing_Person}</label></input>
+        <input ref="totalWeight">                                                                     <label>{Total_Weight}</label></input>
+        <input ref="bagWeight">                                                                       <label>{Bag_Weight}</label></input>
+        <input ref="pes">                                                                             <label>{Pes}</label></input>
+        <input ref="tailWidth">                                                                       <label>{Tail_Width}</label></input>
         <select1 ref="condition" appearance="full">
           <label>{Condition}</label>
           <item><label>G</label>  <value>0</value></item>
