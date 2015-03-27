@@ -24,8 +24,14 @@
               <users/>
             </usertab>
           </user>
+          <control>
+            <control>
+              <buttonNewRecord/>
+              <savedRecords/>
+            </control>
+          </control>
           <bettong>
-            <!-- Physical Characteristics Tab Group -->
+            <!-- Physical Characteristics Tab-->
             <physicalCharacteristics>
               <recordId/>
               <scribe/>
@@ -45,7 +51,7 @@
               <pySize/>
               <notes/>
             </physicalCharacteristics>
-            <!-- Approach and Removal Tab Group -->
+            <!-- Approach and Removal Tab-->
             <approachAndRemoval>
               <timestamp/>
               <wNumber/>
@@ -66,7 +72,7 @@
               <numberBlowsToBag/>
               <bouncedInBag/>
             </approachAndRemoval>
-            <!-- Processing and Release Tab Group -->
+            <!-- Processing and Release Tab -->
             <processingAndRelease>
               <madeNoiseOnProcessing/>
               <struggledOnProcessing/>
@@ -128,10 +134,26 @@
         <select1 ref="users" appearance="compact" faims_certainty="false" faims_annotation="false">
           <label>{Users}</label>
           <item>
-            <label>...<!-- Populated by ui_logic.bsh --></label>
-            <value>...<!-- Populated by ui_logic.bsh --></value>
+            <label>...</label>
+            <value>...</value>
           </item>
         </select1>
+      </group>
+    </group>
+    <!-- CONTROL TAB GROUP -->
+    <group ref="control">
+      <label>Control</label>
+      <group ref="control">
+        <label>Control</label>
+        <trigger ref="buttonNewRecord">
+          <label>New Record</label>
+          <select1 ref="savedRecords" appearance="compact">
+            <label>Saved Records</label>
+            <item>
+              <label>...</label>
+              <value>...</value>
+            </item>
+        </trigger>
       </group>
     </group>
     <!-- BETTONG TAB GROUP -->
