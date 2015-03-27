@@ -61,6 +61,83 @@ login() {
     });
 }
 
+/** Action Bar **/
+
+addActionBarItem("sync", new ToggleActionButtonCallback() {
+    actionOnLabel() {
+        "{Sync_Enabled}";
+    }
+    actionOn() {
+        setSyncEnabled(false);
+        setFileSyncEnabled(false);
+        showToast("{Sync_Disabled}");
+    }
+    isActionOff() {
+        isSyncEnabled();
+    }
+    actionOffLabel() {
+        "{Sync_Disabled}";
+    }
+    actionOff() {
+        setSyncEnabled(true);
+        setFileSyncEnabled(true);
+        showToast("{Sync_Enabled}");
+    }
+});
+
+addActionBarItem("internal_gps", new ToggleActionButtonCallback() {
+    actionOnLabel() {
+        "{Internal_GPS_Enabled}";
+    }
+    actionOn() {
+        stopGPS();
+        showToast("{GPS_Disabled}");
+    }
+    isActionOff() {
+        isInternalGPSOn();
+    }
+    actionOffLabel() {
+        "{Internal_GPS_Disabled}";
+    }
+    actionOff() {
+        if(isExternalGPSOn()) {
+            stopGPS();
+        }
+        startInternalGPS();
+        showToast("{GPS_Enabled}");
+    }
+});
+
+addActionBarItem("external_gps", new ToggleActionButtonCallback() {
+    actionOnLabel() {
+        "{External_GPS_Enabled}";
+    }
+    actionOn() {
+        stopGPS();
+        showToast("{GPS_Disabled}");
+    }
+    isActionOff() {
+        isExternalGPSOn();
+    }
+    actionOffLabel() {
+        "{External_GPS_Disabled}";
+    }
+    actionOff() {
+        if(isInternalGPSOn()) {
+            stopGPS();
+        }
+        startExternalGPS();
+        if(isBluetoothConnected()) {
+            showToast("{GPS_Enabled}");
+        } else {
+            showToast("{Please_Enable_Bluetooth}");
+            this.isActionOff();
+        }
+    }
+});
+
+
+
 entity_id = null;
 saveEntity() {
 	enable_autosave = true;
@@ -94,8 +171,17 @@ loadControlTabGroup() {
     //         populateList("control/control/savedRecords", result);
     //     }
     // });
-
-    fetchAll("select uuid, uuid from archentity where uuid || aenttimestamp in ( select uuid || max(aenttimestamp) from archentity group by uuid having deleted is null);", new FetchCallback() {
+    q = "";
+    q += "SELECT archentity.uuid, archentity.uuid ";
+    q += "FROM archentity ";
+    q += "INNER JOIN idealaent ON archentity.aenttypeid = idealaent.aenttypeid ";
+    q += "WHERE archentity.uuid || archentity.aenttimestamp IN ( ";
+    q += "    SELECT uuid || MAX(archentity.aenttimestamp) ";
+    q += "    FROM archentity ";
+    q += "    GROUP BY archentity.uuid ";
+    q += "    HAVING archentity.deleted IS null ";
+    q += "); ";
+    fetchAll(q, new FetchCallback() {
     onFetch(result) {
     	print("load result:  " + result);
       	populateList("control/control/savedRecords", result);
@@ -113,8 +199,26 @@ loadEntity() {
   });
 }
 
+getGpsCoordinates() {
+	err_loc = "Could not retrieve location";
+    location = getGPSPosition();
+    if (!isExternalGPSOn() && !isInternalGPSOn()) {
+    	showWarning(err_loc, "GPS not connected or not enabled");
+    	return;
+    }
+    if (location == null){
+    	showWarning(err_loc, "GPS initialising or cannot find signal");
+    	return;
+    }
+	lat = location.getLatitude();
+	lon = location.getLongitude();
+	setFieldValue("bettong/approachAndRemoval/coodinates/childLeft/latitude", lat);
+	setFieldValue("bettong/approachAndRemoval/coodinates/childRight/longitude", lon);
+}
+
 onEvent("control/control/savedRecords", "click", "loadEntity()");
 onEvent("bettong", "show", "saveEntity()");
+onEvent("bettong/approachAndRemoval/takeFromGps", "click", "getGpsCoordinates()");
 
 // update() {
 //   fetchAll("select uuid, uuid from archentity where uuid || aenttimestamp in ( select uuid || max(aenttimestamp) from archentity group by uuid having deleted is null);", new FetchCallback() {

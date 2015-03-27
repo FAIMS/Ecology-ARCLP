@@ -148,7 +148,7 @@
         <trigger ref="buttonNewRecord" faims_style_class="faims-blue">
           <label>New Record</label>
         </trigger>
-        <select1 ref="savedRecords" appearance="compact">
+        <select1 ref="savedRecords" appearance="compact" faims_style_class="record-list">
           <label>Saved Records</label>
           <item>
             <label>...</label>
