@@ -112,5 +112,5 @@ loadEntity() {
 
 setSyncEnabled(true);
 onEvent("user/usertab/users", "click", "login()");
-onEvent("control/control/newRecord",   "newRecord()");
+onEvent("control/control/buttonNewRecord",   "newRecord()");
 loadUsers();
