@@ -54,24 +54,67 @@ login() {
     fetchOne("SELECT userid,fname,lname,email FROM user where userid='" + getListItemValue() + "';", new FetchCallback() {
         onFetch(result) {
             user = new User(result.get(0),result.get(1),result.get(2),result.get(3));
-            setUser(user);
-            showTabGroup("control");
+            setUser(user); 
+            username = result.get(1) + " " + result.get(2);
+            loadControlTabGroup();
         }
     });
 }
 
-newRecord() {
-    fetchOne("SELECT userid,fname,lname,email FROM user where userid='" + getListItemValue() + "';", new FetchCallback() {
-        onFetch(result) {
-            user = new User(result.get(0),result.get(1),result.get(2),result.get(3));
-            setUser(user);
-            username = result.get(1) + " " + result.get(2);
-            newTabGroup("bettong");
-            setFieldValue("bettong/physicalCharacteristics/scribe", username);
-            saveEntity(); // Triggers autosaving
-        }
-    });
+entity_id = null;
+saveEntity() {
+	enable_autosave = true;
+	saveTabGroup("bettong", entity_id, null, null, new SaveCallback() {
+    onSave(uuid, newRecord) {
+	    	entity_id = uuid;
+	    	if(newRecord) {
+	    		showToast("New record created");
+	    	}
+	    }
+	},
+	enable_autosave);
 }
+
+newRecord() {
+	entity_id = null;
+     newTabGroup("bettong");
+     setFieldValue("bettong/physicalCharacteristics/scribe", username);
+}
+
+// loadRecord() {
+
+// }
+
+loadControlTabGroup() {
+    showTabGroup("control");
+
+    // fetchAll("SELECT uuid, recordId FROM bettongRecord;", new FetchCallback() {
+    //     onFetch(result) {
+    //     	print("load result:  " + result);
+    //         populateList("control/control/savedRecords", result);
+    //     }
+    // });
+
+    fetchAll("select uuid, uuid from archentity where uuid || aenttimestamp in ( select uuid || max(aenttimestamp) from archentity group by uuid having deleted is null);", new FetchCallback() {
+    onFetch(result) {
+    	print("load result:  " + result);
+      	populateList("control/control/savedRecords", result);
+    }   
+  });
+}
+
+loadEntity() {
+  entity_id = getListItemValue();
+  showTabGroup("bettong", entity_id, new FetchCallback() {
+    onFetch(result) {
+      entity = result;
+      showToast("Loaded entity " + entity.getId());
+  	}
+  });
+}
+
+onEvent("control/control/savedRecords", "click", "loadEntity()");
+onEvent("bettong", "show", "saveEntity()");
 
 // update() {
 //   fetchAll("select uuid, uuid from archentity where uuid || aenttimestamp in ( select uuid || max(aenttimestamp) from archentity group by uuid having deleted is null);", new FetchCallback() {
@@ -81,36 +124,22 @@ newRecord() {
 //   });
 // }
  
-entity_id = null;
-enable_autosave = true;
-saveEntity() {
-  saveTabGroup("bettong", entity_id, null, null, new SaveCallback() {
-    onSave(uuid, newRecord_) {
-      entity_id = uuid;
-      showToast("saved entity " + entity_id);
-      if(newRecord_) {
-        showToast("New record created");
-      }
-      // update();
-    }
-  },
-  enable_autosave);
-}
 
 
-loadEntity() {
-  // entity_id = getFieldValue("bettong/physicalCharacteristics/processingPerson");
-  entity_id = "1000011427412068878";
-  showTabGroup("bettong", entity_id, new FetchCallback() {
-    onFetch(result) {
-      entity = result;
-      showToast("Loaded entity " + entity.getId());
-    }
-  });
-}
+
+// loadRecord() {
+//   // entity_id = getFieldValue("bettong/physicalCharacteristics/processingPerson");
+//   entity_id = "1000011427412068878";
+//   showTabGroup("bettong", entity_id, new FetchCallback() {
+//     onFetch(result) {
+//       entity = result;
+//       showToast("Loaded entity " + entity.getId());
+//     }
+//   });
+// }
 
 
 setSyncEnabled(true);
 onEvent("user/usertab/users", "click", "login()");
-onEvent("control/control/buttonNewRecord",   "newRecord()");
+onEvent("control/control/buttonNewRecord",  "click", "newRecord()");
 loadUsers();

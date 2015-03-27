@@ -145,7 +145,7 @@
       <label>Control</label>
       <group ref="control">
         <label>Control</label>
-        <trigger ref="buttonNewRecord">
+        <trigger ref="buttonNewRecord" faims_style_class="faims-blue">
           <label>New Record</label>
         </trigger>
         <select1 ref="savedRecords" appearance="compact">
