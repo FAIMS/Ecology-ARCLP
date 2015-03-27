@@ -147,14 +147,14 @@
         <label>Control</label>
         <trigger ref="buttonNewRecord">
           <label>New Record</label>
-          <select1 ref="savedRecords" appearance="compact">
-            <label>Saved Records</label>
-            <item>
-              <label>...</label>
-              <value>...</value>
-            </item>
-          </select1>
         </trigger>
+        <select1 ref="savedRecords" appearance="compact">
+          <label>Saved Records</label>
+          <item>
+            <label>...</label>
+            <value>...</value>
+          </item>
+        </select1>
       </group>
     </group>
     <!-- BETTONG TAB GROUP -->
