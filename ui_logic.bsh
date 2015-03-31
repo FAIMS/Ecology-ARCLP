@@ -28,8 +28,6 @@ makeLocalID(){
               "group by uuid " +
               "order by uuid;"
     );
-
-
 }
 makeLocalID();
 
@@ -218,6 +216,8 @@ getGpsCoordinates() {
 	setFieldValue(tabgroup + "longitude", lon);
 }
 
+
+startInternalGPS();
 setSyncEnabled(true);
 onEvent("bettong", "show", "saveEntity()");
 onEvent("bettong/approachAndRemoval/takeFromGps", "click", "getGpsCoordinates()");

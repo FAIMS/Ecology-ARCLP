@@ -210,7 +210,7 @@
       <!-- APPROACH AND REMOVAL TAB -->
       <group ref="approachAndRemoval">
         <label>Approach and Removal</label>
-        <input ref="timestamp" faims_attribute_name="timestamp" faims_attribute_type="freetext" faims_read_only="true" faims_certainty="false">          <label>{Timestamp}</label></input>
+        <input ref="timestamp" faims_attribute_name="timestamp" faims_attribute_type="freetext" faims_certainty="false">          <label>{Timestamp}</label></input>
         <!-- W# and Bag# were to be side-by-side -->
         <input ref="wNumber" faims_attribute_name="wNumber" faims_attribute_type="measure" faims_certainty="false">                                   <label>{W_Number}</label></input>
         <input ref="bagNumber" faims_attribute_name="bagNumber" faims_attribute_type="measure" faims_certainty="false">                                 <label>{Bag_Number}</label></input>
