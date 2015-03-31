@@ -3,6 +3,7 @@ import java.util.concurrent.Callable;
 
 User user; // don't touch
 String userid;
+String username;
 
 makeLocalID(){
     fetchOne("CREATE TABLE IF NOT EXISTS localSettings (key text primary key, value text);");
@@ -39,7 +40,8 @@ makeLocalID();
 /*** Uneditable - you can edit the code below with extreme precaution ***/
 /*** USER ***/
 
-loadUsers() {
+populateUsers() {
+	userid = null;
     fetchAll("SELECT userid, fname || ' ' || lname FROM user WHERE userdeleted IS null;", new FetchCallback() {
         onFetch(result) {
             populateList("user/usertab/users", result);
@@ -47,18 +49,36 @@ loadUsers() {
     });
 }
 
-String username = "";
-String device = "";
-
-login() {
-    fetchOne("SELECT userid,fname,lname,email FROM user where userid='" + getListItemValue() + "';", new FetchCallback() {
+populateUserDetailsAndShowControl() {
+	userid = getListItemValue();
+    fetchOne("SELECT userid,fname,lname,email FROM user where userid='" + userid + "';", new FetchCallback() {
         onFetch(result) {
             user = new User(result.get(0),result.get(1),result.get(2),result.get(3));
             setUser(user); 
             username = result.get(1) + " " + result.get(2);
-            loadControlTabGroup();
+            showTabGroup("control");
         }
     });
+}
+
+populateControlTabGroup() {
+	if (userid == null) userid = getListItemValue(); // userid will only be null on first login (and subsequent accesses of the login tabgroup)
+
+    q  = "";
+    q += "SELECT  UUID, Measure ";
+    q += "FROM    AentValue ";
+    q += "WHERE   AttributeID IS NOT NULL ";
+    q += "AND     Deleted IS NULL ";
+    q += "AND     AttributeID IN ( ";
+    q += "    SELECT  AttributeID ";
+    q += "    FROM    AttributeKey ";
+    q += "    WHERE   AttributeName='recordId');";
+    fetchAll(q, new FetchCallback() {
+    onFetch(result) {
+    	print("load result:  " + result);
+      	populateList("control/control/savedRecords", result);
+    }   
+  });
 }
 
 /** Action Bar **/
@@ -145,105 +165,64 @@ saveEntity() {
     onSave(uuid, newRecord) {
 	    	entity_id = uuid;
 	    	if(newRecord) {
-	    		showToast("New record created");
+	    		showToast("{New_Record_Created}");
 	    	}
 	    }
 	},
 	enable_autosave);
 }
 
-newRecord() {
+createEntityAndPopulateBettong() {
 	entity_id = null;
-     newTabGroup("bettong");
-     setFieldValue("bettong/physicalCharacteristics/scribe", username);
+    newTabGroup("bettong");
+    setFieldValue("bettong/physicalCharacteristics/scribe", username);
+
+    q  = "";
+    q += "SELECT  COALESCE(MAX(Cast(Measure as decimal)), 0) + 1 ";
+    q += "FROM    AentValue ";
+    q += "WHERE   AttributeID IS NOT NULL ";
+    q += "AND     Deleted IS NULL ";
+    q += "AND     AttributeID IN ( ";
+    q += "    SELECT  AttributeID ";
+    q += "    FROM    AttributeKey ";
+    q += "    WHERE   AttributeName='recordId');";
+
+    fetchOne(q, new FetchCallback() {
+        onFetch(result) {
+			setFieldValue("bettong/physicalCharacteristics/recordId", result.get(0));
+			saveEntity();
+        }
+    });
 }
 
-// loadRecord() {
-
-// }
-
-loadControlTabGroup() {
-    showTabGroup("control");
-
-    // fetchAll("SELECT uuid, recordId FROM bettongRecord;", new FetchCallback() {
-    //     onFetch(result) {
-    //     	print("load result:  " + result);
-    //         populateList("control/control/savedRecords", result);
-    //     }
-    // });
-    q = "";
-    q += "SELECT archentity.uuid, archentity.uuid ";
-    q += "FROM archentity ";
-    q += "INNER JOIN idealaent ON archentity.aenttypeid = idealaent.aenttypeid ";
-    q += "WHERE archentity.uuid || archentity.aenttimestamp IN ( ";
-    q += "    SELECT uuid || MAX(archentity.aenttimestamp) ";
-    q += "    FROM archentity ";
-    q += "    GROUP BY archentity.uuid ";
-    q += "    HAVING archentity.deleted IS null ";
-    q += "); ";
-    fetchAll(q, new FetchCallback() {
-    onFetch(result) {
-    	print("load result:  " + result);
-      	populateList("control/control/savedRecords", result);
-    }   
-  });
-}
-
-loadEntity() {
+loadEntityAndPopulateBettong() {
   entity_id = getListItemValue();
-  showTabGroup("bettong", entity_id, new FetchCallback() {
-    onFetch(result) {
-      entity = result;
-      showToast("Loaded entity " + entity.getId());
-  	}
-  });
+  showTabGroup("bettong", entity_id);
 }
 
 getGpsCoordinates() {
-	err_loc = "Could not retrieve location";
     location = getGPSPosition();
     if (!isExternalGPSOn() && !isInternalGPSOn()) {
-    	showWarning(err_loc, "GPS not connected or not enabled");
+    	showWarning("{Err_Loc}", "{Err_Con}");
     	return;
     }
     if (location == null){
-    	showWarning(err_loc, "GPS initialising or cannot find signal");
+    	showWarning("{Err_Loc}", "{Err_Sig}");
     	return;
     }
+
 	lat = location.getLatitude();
 	lon = location.getLongitude();
-	setFieldValue("bettong/approachAndRemoval/coodinates/childLeft/latitude", lat);
-	setFieldValue("bettong/approachAndRemoval/coodinates/childRight/longitude", lon);
+	tabgroup = "bettong/approachAndRemoval/";
+	setFieldValue(tabgroup + "latitude",  lat);
+	setFieldValue(tabgroup + "longitude", lon);
 }
 
-onEvent("control/control/savedRecords", "click", "loadEntity()");
+setSyncEnabled(true);
 onEvent("bettong", "show", "saveEntity()");
 onEvent("bettong/approachAndRemoval/takeFromGps", "click", "getGpsCoordinates()");
-
-// update() {
-//   fetchAll("select uuid, uuid from archentity where uuid || aenttimestamp in ( select uuid || max(aenttimestamp) from archentity group by uuid having deleted is null);", new FetchCallback() {
-//     onFetch(result) {
-//       populateDropDown("bettong/physicalCharacteristics/processingPerson", result);
-//     }   
-//   });
-// }
- 
-
-
-
-// loadRecord() {
-//   // entity_id = getFieldValue("bettong/physicalCharacteristics/processingPerson");
-//   entity_id = "1000011427412068878";
-//   showTabGroup("bettong", entity_id, new FetchCallback() {
-//     onFetch(result) {
-//       entity = result;
-//       showToast("Loaded entity " + entity.getId());
-//     }
-//   });
-// }
-
-
-setSyncEnabled(true);
-onEvent("user/usertab/users", "click", "login()");
-onEvent("control/control/buttonNewRecord",  "click", "newRecord()");
-loadUsers();
+onEvent("control/control/", "show", "populateControlTabGroup()");
+onEvent("control/control/buttonNewRecord",  "click", "createEntityAndPopulateBettong()");
+onEvent("control/control/savedRecords", "click", "loadEntityAndPopulateBettong()");
+onEvent("user/usertab", "show", "populateUsers()");
+onEvent("user/usertab/users", "click", "populateUserDetailsAndShowControl()");
